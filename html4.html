@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo siento</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            animation: fadeIn 3s ease;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #ff6b6b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            animation: fadeIn 4s ease;
+        }
+
+        .button:hover {
+            background: #ff4e4e;
+            transform: scale(1.1);
+        }
+
+        .hidden-message {
+            margin-top: 20px;
+            display: none;
+            font-size: 1.2rem;
+            color: #fbdc3c;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .options button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .yes-button {
+            background: #4caf50;
+            color: white;
+        }
+
+        .no-button {
+            background: #f44336;
+            color: white;
+        }
+
+        .options button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        body {
+            background-size: 200% 200%;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lo siento</h1>
+        <p>Perdóname por no avisarte que estaba ocupado. No quería que pensaras mal ni hacerte enojar. Prometo que la próxima vez seré más claro contigo.</p>
+        <div class="heart" id="heart">❤</div>
+        <div class="options">
+            <button class="yes-button" onclick="forgiveMe()">Sí</button>
+            <button class="no-button" onclick="growHeart()">No</button>
+        </div>
+        <p class="hidden-message" id="hidden-message">Te amo tonta.</p>
+    </div>
+
+    <script>
+        function forgiveMe() {
+            const hiddenMessage = document.getElementById('hidden-message');
+            hiddenMessage.style.display = 'block';
+            hiddenMessage.style.animation = 'fadeIn 2s ease';
+        }
+
+        function growHeart() {
+            const heart = document.getElementById('heart');
+            const currentSize = parseFloat(window.getComputedStyle(heart).fontSize);
+            heart.style.fontSize = (currentSize + 10) + 'px';
+        }
+    </script>
+</body>
+</html>
